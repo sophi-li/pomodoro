@@ -32,24 +32,30 @@ h1 {
 	margin: 10px;
 	cursor: pointer;
 	border-radius: 4px;
+	position: relative;
+	padding: 8px 10px;
 }
-
-
 
 .settings {
 	margin: auto;
-	width: 70%;
+	width: 50%;
 	display: grid;
 	align-items: center;
-	grid-template-columns: 1fr 1fr ; 
+	grid-template-columns:  1fr 1fr; 
+	text-align: center;
 }
 
 
 
+.btn-settings {
+	padding: 8px 10px;
+	margin: 10px;
+}
 
+#work-plus {
+	border-radius: 4px;
 
-
-
+}
 
 
 

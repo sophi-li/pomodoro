@@ -1,55 +1,52 @@
-let countdown = 0;
-let seconds = 1500;
+let countdown = 0; // variable to set/clear intervals
+let seconds = 1500; // seconds left on the clock
 let workTime = 25;
 let breakTime = 5;
 let isBreak = true;
 let isPaused = true;
 
+const status = document.querySelector("#status");
 const timerDisplay = document.querySelector(".timerDisplay");
 const startBtn = document.querySelector("#start-btn");
 const resetBtn = document.querySelector("#reset");
 const workMin = document.querySelector("#work-min");
 const breakMin = document.querySelector("#break-min");
 
-const alarm = document.querySelector("audio");
+const alarm = document.createElement('audio'); // A bell sound will play when the timer reaches 0
 alarm.setAttribute("src", "https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3");
 
 
-// Start button 
-startBtn.addEventListener("click", () => {
-	clearInterval(countdown);
-	isPaused = !isPaused;
-	if (!isPaused) {
-		countdown = setInterval(timer, 1000);
-	}
-} )
+/* EVENT LISTENERS FOR START AND RESET BUTTONS */
+startBtn.addEventListener('click', () => {
+  clearInterval(countdown);
+  isPaused = !isPaused;
+  if (!isPaused) {
+    countdown = setInterval(timer, 1000);
+  }
+})
 
+resetBtn.addEventListener('click', () => {
+  clearInterval(countdown);
+  seconds = workTime * 60;
+  countdown = 0;
+  isPaused = true;
+  isBreak = true;
+})
 
-// Reset button
-
-resetBtn.addEventListener("click", () => {
-	clearInterval(countdown);
-	seconds = workTime *60;
-	countdown = 0;
-	isPaused = true;
-	isBreak = true;
-} )
-
-
-// timer
+/* TIMER - HANDLES COUNTDOWN */
 function timer() {
-	seconds --;
-	if (seconds < 0) {
-		clearInterval(countdown);
-		alarm.currentTime = 0;
-		alarm.play();
-		seconds= (isBreak ? breakTime : workTime) * 60;
-		isBreak != isBreak;
-		countdown = setInterval(timer, 1000);
-}
+  seconds --;
+  if (seconds < 0) {
+    clearInterval(countdown);
+    alarm.currentTime = 0;
+    alarm.play();
+    seconds = (isBreak ? breakTime : workTime) * 60;
+    isBreak = !isBreak;
+    countdown = setInterval(timer, 1000);
+  }
 }
 
-
+ 
 /* UPDATE WORK AND BREAK TIMES */
 let increment = 5;
 
@@ -76,9 +73,9 @@ function buttonDisplay() {
   if (isPaused && countdown === 0) {
     startBtn.textContent = "START";
   } else if (isPaused && countdown !== 0) {
-    startBtn.textContent = "Continue"; 
+    startBtn.textContent = "CONTINUE"; 
   } else {
-    startBtn.textContent = "Pause";
+    startBtn.textContent = "PAUSE";
   }
 }
 
@@ -93,4 +90,3 @@ function updateHTML() {
 window.setInterval(updateHTML, 100);
 
 document.onclick = updateHTML;
-
