@@ -1,44 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Pomodoro</title>
+	<title>Tomato Timer</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+	
 </head>
 <body>
 
+<!-- START HERO IMAGE -->
+<div class="hero-image">
+	<!-- START CONTAINER -->
+	<div class="container">
+	<h1>TOMATO TIMER</h1>
 
-<div class="container">
-<h1>Pomodoro Timer</h1>
+		<!-- START POMO -->
+		<div id="pomodoro">
+			<div id="status">A</div>
+			<div class="timerDisplay">25:00</div>
+			<button class="btn" id="start-btn">START</button>
+		</div>
+		<!-- END POMO -->
 
-<div id="pomodoro">
-	<div id="status"></div>
-	<div class="timerDisplay">25:00</div>
-	<button class="btn" id="start-btn">START</button>
-	<button class="btn" id="reset">RESET</button>
-</div>
+		<!-- START SETTINGS -->
+		<div class="settings">
+			<!-- WORK COLUMN (LEFT) -->
+			<div class="work">
+				<p class="duration-text">Work Duration</p>
+				<button class="btn-settings" id="work-plus">+</button>
+				<p id="work-min">25 min</p>
+				<button class="btn-settings" id="work-minus">-</button>
+			</div>
+			<!-- RESET COLUMN (MIDDLE) -->
+			<div class="reset">
+				<button class="btn" id="reset">RESET</button>
+			</div>
+			<!-- BREAK COLUMN (RIGHT) -->
+			<div id="break">
+				<p class="duration-text">Break Duration</p>
+				<button class="btn-settings" id="break-plus">+</button>
+				<p id="break-min"> 5 min</p>
+				<button class="btn-settings" id="break-minus">-</button>
+			</div>
+		</div>
+		<!-- END SETTINGS -->
 
-	
-
-<div class="settings">
-	<div class="work">
-		<p>Work Duration</p>
-		<button class="btn-settings" id="work-plus">+</button>
-		<p id="work-min">25 min</p>
-		<button class="btn-settings" id="work-minus">-</button>
 	</div>
-
-	
-
-	<div id="break">
-		<p>Break Duration</p>
-		<button class="btn-settings" id="break-plus">+</button>
-		<p id="break-min"> 5 min</p>
-		<button class="btn-settings" id="break-minus">-</button>
-</div>
+	<!-- END CONTAINER -->
 
 </div>
-
+<!-- END HERO TOMATO IMAGE -->
 
 <script type="text/javascript" src="app.js"></script>
 </body>
+
+<!-- Photo by Alex Ghizila on Unsplash -->
 </html>

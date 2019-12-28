@@ -1,3 +1,4 @@
+
 let countdown = 0; // variable to set/clear intervals
 let seconds = 1500; // seconds left on the clock
 let workTime = 25;
@@ -5,6 +6,7 @@ let breakTime = 5;
 let isBreak = true;
 let isPaused = true;
 
+// Define UI variables
 const status = document.querySelector("#status");
 const timerDisplay = document.querySelector(".timerDisplay");
 const startBtn = document.querySelector("#start-btn");
@@ -48,7 +50,7 @@ function timer() {
 
  
 /* UPDATE WORK AND BREAK TIMES */
-let increment = 5;
+let increment = 1;
 
 let incrementFunctions =
     {"#work-plus": function () { workTime = Math.min(workTime + increment, 60)},
@@ -56,7 +58,7 @@ let incrementFunctions =
      "#break-plus": function () { breakTime = Math.min(breakTime + increment, 60)},
      "#break-minus": function () { breakTime = Math.max(breakTime - increment, 5)}};
 
-for (var key in incrementFunctions) {
+for (let key in incrementFunctions) {
     if (incrementFunctions.hasOwnProperty(key)) {
       document.querySelector(key).onclick = incrementFunctions[key];
     }
@@ -69,15 +71,21 @@ function countdownDisplay() {
   timerDisplay.textContent = `${minutes}:${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}`;
 }
 
+// let hoverCSS = 'startBtn:hover{ color: #555 }';
+
 function buttonDisplay() {
   if (isPaused && countdown === 0) {
     startBtn.textContent = "START";
+    startBtn.style.backgroundColor = "green";
   } else if (isPaused && countdown !== 0) {
     startBtn.textContent = "CONTINUE"; 
+    startBtn.style.backgroundColor = "green";
   } else {
     startBtn.textContent = "PAUSE";
+    startBtn.style.backgroundColor = "yellow";
   }
 }
+
 
 function updateHTML() {
   countdownDisplay();
